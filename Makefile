@@ -38,4 +38,10 @@ clean:
 	@echo "Cleanup completed."
 	@find . -type d -name "output" -exec rm -rf {} +
 	@find . -type d -name ".metals" -exec rm -rf {} +
+	@find . -type d -name "target" -exec rm -rf {} +
+	@find . -type d -name "build" -exec rm -rf {} +
+	@find . -type d -name "dist" -exec rm -rf {} +
+	@find . -type d -name "out" -exec rm -rf {} +
+	@find . -type d -name "bin" -exec rm -rf {} +
+	@find . -type d -name "__pycache__" -exec rm -rf {} +
 	@echo "Output directories cleaned."
