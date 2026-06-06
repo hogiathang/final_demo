@@ -1,0 +1,9 @@
+{
+  "model_name": "codellama/CodeLlama-7b-Instruct-hf",
+  "max_new_tokens": 512,    
+  "do_sample": false,       
+  "top_k": 1,              
+  "top_p": 0.95,            
+  "temperature": 0.0, 
+  "num_return_sequences": 1
+}
