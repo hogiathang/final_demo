@@ -21,11 +21,12 @@ SCRIPT_DIR = ./scripts
 OUTPUT_DIR = ./output
 CODE_SLICING_OUTPUT_DIR = $(OUTPUT_DIR)/js_code_slicing_output
 LLM_OUTPUT_DIR = $(OUTPUT_DIR)/malllm_output
+CHECKPOINT_DIR = $(OUTPUT_DIR)/checkpoints
 
 run:
 	@echo "Running the full pipeline with dataset: $(DATASET_DIR)"
 	@echo "Step 1: Running JS Code Slicing..."
-	@bash $(SCRIPT_DIR)/run_js_code_slicing.sh $(DATASET_DIR) $(CODE_SLICING_OUTPUT_DIR) 4
+	@bash $(SCRIPT_DIR)/run_js_code_slicing.sh $(DATASET_DIR) $(CODE_SLICING_OUTPUT_DIR) 4 $(CHECKPOINT_DIR)
 	@echo "Clean all cpg.bin files after JS code slicing..."
 	@find $(CODE_SLICING_OUTPUT_DIR) -type f -name "cpg.bin" -delete
 	@echo "Step 2: Running LLM with MalLLM..."
@@ -37,11 +38,4 @@ clean:
 	@find . -type f -name "*.log" -delete
 	@echo "Cleanup completed."
 	@find . -type d -name "output" -exec rm -rf {} +
-	@find . -type d -name ".metals" -exec rm -rf {} +
-	@find . -type d -name "target" -exec rm -rf {} +
-	@find . -type d -name "build" -exec rm -rf {} +
-	@find . -type d -name "dist" -exec rm -rf {} +
-	@find . -type d -name "out" -exec rm -rf {} +
-	@find . -type d -name "bin" -exec rm -rf {} +
-	@find . -type d -name "__pycache__" -exec rm -rf {} +
 	@echo "Output directories cleaned."

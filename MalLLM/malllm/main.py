@@ -37,6 +37,7 @@ def inference(sample, model, output_root: Path):
 
     try:
         # Tokenize → generate prediction
+        print(f"[INFO] Running inference for slice: {sample.name} in package: {sample.package_name}")
         inputs = model.tokenize(Path(sample.package_path))
         
         # Optional: Skip logic if tokens > 8000
