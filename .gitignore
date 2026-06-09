@@ -1,0 +1,9 @@
+# Python virtual environment
+MalLLM/venv/
+
+# Output files
+output/
+
+# Optional Python ignores
+__pycache__/
+*.pyc

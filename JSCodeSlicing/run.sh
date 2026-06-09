@@ -2,6 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 export ASTGEN_BIN="$SCRIPT_DIR/astgen/astgen-linux"
+chmod +x "$ASTGEN_BIN"
 
 if [ ! -f "$ASTGEN_BIN" ]; then
     echo "Error: astgen-linux not found at $ASTGEN_BIN"

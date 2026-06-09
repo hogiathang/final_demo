@@ -143,7 +143,12 @@ class AIModel:
         )
 
         # Decode only generated tokens
-        input_length = inputs["input_ids"].shape[1] if isinstance(inputs, dict) else inputs.shape[1]
+        if hasattr(inputs, "input_ids"):
+            input_length = inputs["input_ids"].shape[1]
+        elif isinstance(inputs, dict):
+            input_length = inputs["input_ids"].shape[1]
+        else:
+            input_length = inputs.shape[1]
         return self.tokenizer.decode(
             outputs[0][input_length:],
             skip_special_tokens=True
