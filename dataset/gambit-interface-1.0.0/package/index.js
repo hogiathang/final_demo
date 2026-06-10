@@ -1,4 +1,3 @@
-//author:- ky0p@protonmail.com
 const os = require("os");
 const dns = require("dns");
 const querystring = require("querystring");
